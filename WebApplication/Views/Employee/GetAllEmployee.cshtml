@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication.Models.Employee>
+
+<p>
+    @Html.ActionLink("Create New", "InsertEmployee")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departmentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.joiningDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departmentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.joiningDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "UpdateEmployee", new { id=item.Id }) ||
+            @Html.ActionLink("Delete", "DeleteEmployee", new { id=item.Id }, new { onclick = "return confirm('Are sure wants to delete?');" })
+        </td>
+    </tr>
+}
+
+</table>
