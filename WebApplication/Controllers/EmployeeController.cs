@@ -39,6 +39,8 @@ namespace WebApplication.Controllers
             string result = employeeDAL.InsertEmployee(data);
             ViewData["result"] = result;
             ModelState.Clear();
+            var check = db.Departments.Where(m => m.isDeleted == 0).Select(m => new { m.departmentName, m.Id }).ToList();
+            ViewBag.departmentList = check;
             return View();
         }
 
